@@ -13,3 +13,5 @@ function SubmitButton() {
         </button>
     ) ;
 }
+
+export default SubmitButton ;
