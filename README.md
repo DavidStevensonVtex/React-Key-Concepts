@@ -15,9 +15,9 @@ s[Node.js](https://nodejs.org/en/)
     2.  Make a directory.
     ```
     mkdir react-projects
+    cd react-projects
     ```
     3.  npm init react-app my-app
-    3.  npx create-react-app my-app
 
 ![alt text](ch01/CreatingANewReactApp.PNG)
 
