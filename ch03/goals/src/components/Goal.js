@@ -8,3 +8,5 @@ function Goal(props) {
         </li>
     ) ;    
 }
+
+export default Goal ;
