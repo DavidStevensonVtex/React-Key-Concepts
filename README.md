@@ -6,7 +6,7 @@ My self training in React Key Concepts book by Maximilian Schwarzmüller.
 
     1. Install Node.js and npm (included with your installation by default).
 
-s[Node.js](https://nodejs.org/en/)
+[Node.js](https://nodejs.org/en/)
 
     
 ## Installing React.js
