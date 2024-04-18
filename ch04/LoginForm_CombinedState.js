@@ -8,11 +8,21 @@ function LoginForm()
     }) ;
 
     function emailEnteredHandler(event) {
-        setUserData ( { email: event.target.value, password: userData.password});
+        setUserData ( prevData => ( 
+            { 
+                email: event.target.value, 
+                password: prevData.password 
+            } 
+        ));
     }
 
     function passwordEnteredHandler(event) {
-        setEnteredPassword({ email: userData.email, password: event.target.value });
+        setEnteredPassword( prevData => (
+            {
+                email: prevData.email,
+                password: event.target.value
+            }
+        ));
     }
 
     // Below, props are split across multiple lines for better readability.
