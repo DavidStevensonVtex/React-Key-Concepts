@@ -25,7 +25,7 @@ function LoginForm()
             <input
                 type="password"
                 placeholder="Your password"
-                onBlue={passwordEnteredHandler} />
+                onBlur={passwordEnteredHandler} />
         </form>
     ) ;
 }
