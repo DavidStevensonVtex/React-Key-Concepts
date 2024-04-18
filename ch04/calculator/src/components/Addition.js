@@ -2,24 +2,23 @@ import { useState } from 'react' ;
 
 function Addition()
 {
-    const [input1, setInput1] = useState(0);
-    const [input2, setInput2] = useState(0);
+    const [inputs, setInputs] = useState( { first: 0, second: 0 });
 
-    function input1Handler(event) {
-        setInput1(Number(event.target.value));
+    function firstNumberHandler(event) {
+        setInputs( prevInputs => ({ first: Number(event.target.value), second: prevInputs.second}));
     }
 
-    function input2Handler(event) {
-        setInput2(Number(event.target.value));
+    function secondNumberHandler(event) {
+        setInputs( prevInputs => ({ first: prevInputs.first, second: Number(event.target.value)}));
     }
 
-    const sum = input1 + input2 ;
+    const sum = inputs.first + inputs.second ;
 
     return (
         <tr>
-            <td><input type='number' value={input1} onChange={input1Handler} /></td>
+            <td><input type='number' value={inputs.first} onChange={firstNumberHandler} /></td>
             <td>+</td>
-            <td><input type='number' value={input2} onChange={input2Handler} /></td>
+            <td><input type='number' value={inputs.second} onChange={secondNumberHandler} /></td>
             <td>=</td>
             <td>{sum}</td>
         </tr>
