@@ -10,6 +10,7 @@ function EmailInput()
             errorMessage = '' ;
         }
     }
+
     return {
         <div>
             <input placeholder="Your email" type="email" />
