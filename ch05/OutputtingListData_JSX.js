@@ -6,13 +6,22 @@ const products = [
     { id: 'p3', title: 'Another Book', price: 39.99 }
 ] ;
 
-const transformedProducts = [] ;
+function ProductList() {
+    const productElements = [] ;
 
-for ( const product of products) {
-    transformedProducts.push((
-        <li>
-            <h2>{product.title}</h2>
-            <p>${product.price}</p>
-        </li>
-    ));
+    for ( const product of products) {
+        productElements.push((
+            <li>
+                <h2>{product.title}</h2>
+                <p>${product.price}</p>
+            </li>
+        ));
+    }
+
+    return (
+        <ul>
+            {productElements}
+        </ul>
+    ) ;
 }
+
