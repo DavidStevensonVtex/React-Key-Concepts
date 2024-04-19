@@ -10,8 +10,13 @@ function TermsOfUse() {
     let paragraphText ;
 
     if (showTerms) {
-        paragraphText = <p>By continuing, you accept that we will not indemnify you for any damage or harm caused by our products.</p> ;
+        paragraphText = ( 
+            <p>
+                By continuing, you accept that we will not indemnify you 
+                for any damage or harm caused by our products.
+            </p>) ;
     }
+
     return (
         <section>
             <button onClick={showTermsSummaryHandler}>Show Terms of Use Summary</button>
