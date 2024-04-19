@@ -7,20 +7,19 @@ function TermsOfUse() {
         setShowTerms(true);
     }
 
-    let paragraphText ;
-
-    if (showTerms) {
-        paragraphText = ( 
+    const paragraph = showTerms ? 
+        ( 
             <p>
                 By continuing, you accept that we will not indemnify you 
                 for any damage or harm caused by our products.
-            </p>) ;
-    }
+            </p>
+        ) :
+        null ;
 
     return (
         <section>
             <button onClick={showTermsSummaryHandler}>Show Terms of Use Summary</button>
-            {paragraphText}
+            {paragraph}
         </section>
     )
 }
