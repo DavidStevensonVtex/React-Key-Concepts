@@ -1,7 +1,6 @@
-import { useState } from 'react' ;
-
 function Email()
 {
+
     return (
         <>
             <h2>Your email</h2>
@@ -10,3 +9,5 @@ function Email()
         </>
     ) ; 
 }
+
+export default Email ;
