@@ -4,8 +4,9 @@ import './App.css';
 // import SettingInLineStyles from './components/SettingInLineStyles' ;
 // import TodoPriority from './components/TodoPriority' ;
 // import ConditionalStyles1 from './components/ConditionalStyles1' ;
-import ConditionalStyles2 from './components/ConditionalStyles2' ;
-import CombiningMultipleDynamicClasses from './components/CombiningMultipleDynamicClasses' ;
+// import ConditionalStyles2 from './components/ConditionalStyles2' ;
+// import CombiningMultipleDynamicClasses from './components/CombiningMultipleDynamicClasses' ;
+import CombiningMultipleDynamicClasses2 from './components/CombiningMultipleDynamicClasses2' ;
 
 function App() {
   // <SettingStylesDynamically />
@@ -14,15 +15,15 @@ function App() {
   // <TodoPriority />
   return (
     <>
-      <CombiningMultipleDynamicClasses isImportant={true}>
+      <CombiningMultipleDynamicClasses2 isImportant={true}>
         You can see a lot just by looking.
-      </CombiningMultipleDynamicClasses>
-      <CombiningMultipleDynamicClasses isImportant={false}>
+      </CombiningMultipleDynamicClasses2>
+      <CombiningMultipleDynamicClasses2 isImportant={false}>
         The rain in Spain falls mainly in the plain.
-      </CombiningMultipleDynamicClasses>
-      <CombiningMultipleDynamicClasses isImportant={true}>
+      </CombiningMultipleDynamicClasses2>
+      <CombiningMultipleDynamicClasses2 isImportant={true}>
         It's tough to make predictions, especially about the future.
-      </CombiningMultipleDynamicClasses>
+      </CombiningMultipleDynamicClasses2>
     </>
   );
 }

@@ -10,5 +10,6 @@
 
 .text-important {
     font-weight: bold ;
-    color: red ;
+    background-color: red ;
+    color: white ;
 }
