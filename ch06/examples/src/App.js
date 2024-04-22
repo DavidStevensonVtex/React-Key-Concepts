@@ -7,7 +7,8 @@ import './App.css';
 // import ConditionalStyles2 from './components/ConditionalStyles2' ;
 // import CombiningMultipleDynamicClasses from './components/CombiningMultipleDynamicClasses' ;
 // import CombiningMultipleDynamicClasses2 from './components/CombiningMultipleDynamicClasses2' ;
-import MergingMultipleInlineStyleObjects from './components/MergingMultipleInlineStyleObjects' ;
+// import MergingMultipleInlineStyleObjects from './components/MergingMultipleInlineStyleObjects' ;
+import Button from './components/Button' ;
 
 function App() {
   // <SettingStylesDynamically />
@@ -16,15 +17,13 @@ function App() {
   // <TodoPriority />
   return (
     <>
-      <MergingMultipleInlineStyleObjects isImportant={true}>
-        You can see a lot just by looking.
-      </MergingMultipleInlineStyleObjects>
-      <MergingMultipleInlineStyleObjects isImportant={false}>
-        The rain in Spain falls mainly in the plain.
-      </MergingMultipleInlineStyleObjects>
-      <MergingMultipleInlineStyleObjects isImportant={true}>
-        It's tough to make predictions, especially about the future.
-      </MergingMultipleInlineStyleObjects>
+    <Button config={{type: 'button' }} className='important'>
+        Urgent!
+      </Button>
+      <br /><br />
+      <Button config={{type: 'submit' }} className='normal'>
+        Normal Priority
+      </Button>
     </>
   );
 }

@@ -1,0 +1,20 @@
+.btn {
+    color: white ;
+    border: none ;
+    text-align: center ;
+    border-radius: 16px ;
+    padding: 18px 14px ;
+}
+
+.important {
+    background-color: red ;
+    font-weight: bold ;
+    font-size: 24pt ;
+}
+
+
+.normal {
+    background-color: green ;
+    font-style: italic ;
+    font-size: 12pt ;
+}
