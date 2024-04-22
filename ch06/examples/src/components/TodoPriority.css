@@ -1,9 +1,11 @@
 .low-prio {
-    color: black ;
+    background-color: blue;
+    color: white ;
     font-size: smaller ;
 }
 
 .high-prio {
     font-weight: bold ;
-    color: red ;
+    background-color: red ;
+    color: white ;
 }
