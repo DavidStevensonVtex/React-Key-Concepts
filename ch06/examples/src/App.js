@@ -8,7 +8,8 @@ import './App.css';
 // import CombiningMultipleDynamicClasses from './components/CombiningMultipleDynamicClasses' ;
 // import CombiningMultipleDynamicClasses2 from './components/CombiningMultipleDynamicClasses2' ;
 // import MergingMultipleInlineStyleObjects from './components/MergingMultipleInlineStyleObjects' ;
-import Button from './components/Button' ;
+// import Button from './components/Button' ;
+import Button2 from './components/Button' ;
 
 function App() {
   // <SettingStylesDynamically />
@@ -17,13 +18,13 @@ function App() {
   // <TodoPriority />
   return (
     <>
-    <Button config={{type: 'button' }} className='important'>
+    <Button2 config={{type: 'button' }} className='btn important'>
         Urgent!
-      </Button>
+      </Button2>
       <br /><br />
-      <Button config={{type: 'submit' }} className='normal'>
+      <Button2 config={{type: 'submit' }} className='btn normal'>
         Normal Priority
-      </Button>
+      </Button2>
     </>
   );
 }
