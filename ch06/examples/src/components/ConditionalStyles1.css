@@ -1,0 +1,17 @@
+.input-default {
+    background-color: lightyellow ;
+    color: blue ;
+    font-weight: normal ;
+}
+
+.input-invalid {
+    background-color: lightpink ;
+    color: blue ;
+    font-weight: bold ;
+}
+
+.input-recommended {
+    background-color: green ;
+    color: white ;
+    font-weight: bold ;
+}
