@@ -1,6 +1,7 @@
-import { useState } from 'react' ;
+// import { useState } from 'react' ;
+import './SelectivelyApplyingStyles..css';
 
-function SelectivelyApplyStyles()
+function SelectivelyApplyingStyles()
 {
     return ( 
         <nav>
@@ -13,5 +14,7 @@ function SelectivelyApplyStyles()
             <li className="goal-item">Learn React!</li>
             <li className="goal-item">Master React!</li>
         </nav>
-    )
+    ) ;
 }
+
+export default SelectivelyApplyingStyles ;

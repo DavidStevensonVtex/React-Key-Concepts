@@ -1,6 +1,6 @@
 import { useState } from 'react' ;
 
-function ColoredText() {
+function SettingStylesDynamically() {
     const [enteredColor, setEnteredColor] = useState('');
 
     function updateTextColorHandler(event) {
@@ -14,3 +14,5 @@ function ColoredText() {
         </>
     )
 }
+
+export default SettingStylesDynamically ;
