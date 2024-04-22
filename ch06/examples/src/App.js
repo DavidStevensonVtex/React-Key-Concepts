@@ -6,7 +6,8 @@ import './App.css';
 // import ConditionalStyles1 from './components/ConditionalStyles1' ;
 // import ConditionalStyles2 from './components/ConditionalStyles2' ;
 // import CombiningMultipleDynamicClasses from './components/CombiningMultipleDynamicClasses' ;
-import CombiningMultipleDynamicClasses2 from './components/CombiningMultipleDynamicClasses2' ;
+// import CombiningMultipleDynamicClasses2 from './components/CombiningMultipleDynamicClasses2' ;
+import MergingMultipleInlineStyleObjects from './components/MergingMultipleInlineStyleObjects' ;
 
 function App() {
   // <SettingStylesDynamically />
@@ -15,15 +16,15 @@ function App() {
   // <TodoPriority />
   return (
     <>
-      <CombiningMultipleDynamicClasses2 isImportant={true}>
+      <MergingMultipleInlineStyleObjects isImportant={true}>
         You can see a lot just by looking.
-      </CombiningMultipleDynamicClasses2>
-      <CombiningMultipleDynamicClasses2 isImportant={false}>
+      </MergingMultipleInlineStyleObjects>
+      <MergingMultipleInlineStyleObjects isImportant={false}>
         The rain in Spain falls mainly in the plain.
-      </CombiningMultipleDynamicClasses2>
-      <CombiningMultipleDynamicClasses2 isImportant={true}>
+      </MergingMultipleInlineStyleObjects>
+      <MergingMultipleInlineStyleObjects isImportant={true}>
         It's tough to make predictions, especially about the future.
-      </CombiningMultipleDynamicClasses2>
+      </MergingMultipleInlineStyleObjects>
     </>
   );
 }
