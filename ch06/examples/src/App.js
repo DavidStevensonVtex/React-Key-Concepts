@@ -5,6 +5,7 @@ import './App.css';
 // import TodoPriority from './components/TodoPriority' ;
 // import ConditionalStyles1 from './components/ConditionalStyles1' ;
 import ConditionalStyles2 from './components/ConditionalStyles2' ;
+import CombiningMultipleDynamicClasses from './components/CombiningMultipleDynamicClasses' ;
 
 function App() {
   // <SettingStylesDynamically />
@@ -13,11 +14,15 @@ function App() {
   // <TodoPriority />
   return (
     <>
-      <ConditionalStyles2 isValid={true} isRecommended={false} inputConfig={{type: 'text', maxLength: 10}} />
-      <br />
-      <ConditionalStyles2 isValid={false} isRecommended={true} inputConfig={{type: 'email', maxLength: 99}} />
-      <br />
-      <ConditionalStyles2 isValid={true} isRecommended={true} inputConfig={{type: 'date', maxLength: 14 }} />
+      <CombiningMultipleDynamicClasses isImportant={true}>
+        You can see a lot just by looking.
+      </CombiningMultipleDynamicClasses>
+      <CombiningMultipleDynamicClasses isImportant={false}>
+        The rain in Spain falls mainly in the plain.
+      </CombiningMultipleDynamicClasses>
+      <CombiningMultipleDynamicClasses isImportant={true}>
+        It's tough to make predictions, especially about the future.
+      </CombiningMultipleDynamicClasses>
     </>
   );
 }

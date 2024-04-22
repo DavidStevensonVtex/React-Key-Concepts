@@ -1,0 +1,14 @@
+.text-default {
+    background-color: blue ;
+    color: white ;
+    font-size: smaller ;
+}
+
+.text-expl {
+    font-style: italic ;
+}
+
+.text-important {
+    font-weight: bold ;
+    color: red ;
+}
