@@ -9,7 +9,8 @@ import './App.css';
 // import CombiningMultipleDynamicClasses2 from './components/CombiningMultipleDynamicClasses2' ;
 // import MergingMultipleInlineStyleObjects from './components/MergingMultipleInlineStyleObjects' ;
 // import Button from './components/Button' ;
-import Button2 from './components/Button' ;
+// import Button2 from './components/Button' ;
+import TextBox from './components/TextBox' ;
 
 function App() {
   // <SettingStylesDynamically />
@@ -18,13 +19,12 @@ function App() {
   // <TodoPriority />
   return (
     <>
-    <Button2 config={{type: 'button' }} className='btn important'>
-        Urgent!
-      </Button2>
-      <br /><br />
-      <Button2 config={{type: 'submit' }} className='btn normal'>
-        Normal Priority
-      </Button2>
+      <TextBox mode='alert'>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </TextBox>
+      <TextBox mode='info'>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </TextBox>
     </>
   );
 }

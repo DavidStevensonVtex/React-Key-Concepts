@@ -1,0 +1,9 @@
+.box-alert {
+    background-color: yellow ;
+    font-weight: bold ;
+}
+
+.box-info {
+    background-color: royalblue;
+    color: white ;
+}
