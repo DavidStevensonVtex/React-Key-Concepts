@@ -7,6 +7,8 @@ export default function Form() {
 
     function submitHandler(event) {
         event.preventDefault() ;
+        console.log("preferencesRef.current.selectedPreferences", preferencesRef.current.selectedPreferences);
+        preferencesRef.current.reset();
     }
 
     return (

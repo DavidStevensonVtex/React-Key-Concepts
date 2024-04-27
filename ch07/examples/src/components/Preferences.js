@@ -19,7 +19,8 @@ function Preferences(props, ref) {
     }
 
     ref.current.reset = reset;
-    ref.current.selectedPreferencds = {
+
+    ref.current.selectedPreferences = {
         newProductInfo: wantsNewProdInfo,
         productUpdateInfo: wantsProdUpdateInfo
     };
