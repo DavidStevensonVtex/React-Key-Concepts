@@ -1,7 +1,7 @@
 import { useState, forwardRef } from 'react' ;
 import classes from "./Preferences.css" ;
 
-const Preferences = forwardRef( (props, ref) => {
+function Preferences(props, ref) {
     const [wantsNewProdInfo, setWantsNewProdInfo] = useState(false);
     const [wantsProdUpdateInfo, setWantsProdUpdateInfo] = useState(false) ;
 
@@ -33,6 +33,6 @@ const Preferences = forwardRef( (props, ref) => {
             </label>
         </div>
     )
-});
+}
 
-export default Preferences ;
+export default forwardRef(Preferences) ;
