@@ -1,29 +1,36 @@
 import { useState, useRef } from 'react' ;
 
-// Using Refs For More Than DOM Access
+// page 174
 
-// Refs are more than just "element connetion bridges"; they are objects that can
-// be used to store all kinds of values -- not just pointers at DOM objects. You 
-// can also store strings or numbers or any kind of value in a ref.
+// In this example, it might again look like refs can replace state, but the
+// example actually shows very well why that is *not* the case. Try replacing
+// counter1 with another ref (so that there is no state value left in the
+// component) and clicking the button.
+
+// Nothing will change on the page because, while the button click is registered 
+// and the changeCountersHandler function is executed, no change state is initiated.
+// And state changes (initiated via the setXYZ state updating function calls) are
+// the triggers that cause React to re-evaluate a component. Changes to *ref* values
+// do *not* do that.
 
 export default function Counters() {
-    const [counter1, setCounter1] = useState(0);
-    const counterRef = useRef(0) ;      // pass an initial value to useRef
+    const counterRef1 = useRef(0);
+    const counterRef2 = useRef(0) ;      // pass an initial value to useRef
     let counter2 = 0 ;
 
     function changeCountersHandler() {
-        setCounter1(1);
+        counterRef1.current = 1;
         counter2 = 1 ;
-        counterRef.current = 1;
+        counterRef2.current = 1;
     }
 
     return (
         <>
             <button onClick={changeCountersHandler}>Change Counters</button>
             <ul>
-                <li>Counter 1: {counter1}</li>
+                <li>Counter 1: {counterRef1.current}</li>
                 <li>Counter 2: {counter2}</li>
-                <li>Counter 3: {counterRef.current}</li>
+                <li>Counter 3: {counterRef2.current}</li>
             </ul>
         </>
     )
