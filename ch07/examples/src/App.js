@@ -1,9 +1,9 @@
 import './App.css';
-import Counters from "./components/Counters" ;
+import Form from "./components/Form" ;
 
 function App() {
   return (
-    <Counters />
+    <Form />
   );
 }
 
