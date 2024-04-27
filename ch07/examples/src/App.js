@@ -1,9 +1,9 @@
 import './App.css';
-import EmailForm from "./components/EmailForm" ;
+import Counters from "./components/Counters" ;
 
 function App() {
   return (
-    <EmailForm />
+    <Counters />
   );
 }
 
