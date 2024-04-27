@@ -10,6 +10,7 @@ export default function Form() {
         <form className={classes.form} onSubmit={submitHandler}>
             <div className={classes.formControl}>
                 <label htmlFor="email">Your email</label>
+                <br />
                 <input type="email" id="email" />
             </div>
             <Preferences />

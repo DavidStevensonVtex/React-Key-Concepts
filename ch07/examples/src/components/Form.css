@@ -3,8 +3,3 @@ form {
     padding: 0.125in;
     border: 1px solid black ;
 }
-
-label::after {
-    content: "\a";
-    white-space: pre;
-}
