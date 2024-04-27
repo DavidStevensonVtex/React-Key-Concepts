@@ -1,7 +1,10 @@
 import classes from "./Form.css" ;
 import Preferences from "./Preferences" ;
+import { useRef } from 'react' ;
 
 export default function Form() {
+    const preferencesRef = useRef({});
+
     function submitHandler(event) {
         event.preventDefault() ;
     }
@@ -13,7 +16,7 @@ export default function Form() {
                 <br />
                 <input type="email" id="email" />
             </div>
-            <Preferences />
+            <Preferences ref={preferencesRef} />
             <button>Submit</button>
         </form>
     )
