@@ -1,14 +1,35 @@
+import { useState } from 'react' ;
 import classes from "./Form.css" ;
 import Preferences from "./Preferences" ;
-import { useRef } from 'react' ;
 
 export default function Form() {
-    const preferencesRef = useRef({});
+    const [ wantsNewProdInfo, setWantsNewProdInfo] = useState(false);
+    const [ wantsProdUpdateInfo, setWantsProdUpdateInfo ] = useState(false);
+
+    function updateProdInfoHandler(selection) {
+        // using one shared update handler function is optional
+        // you cuold also use two separate functions (passed to Preferences) as props
+        console.log("selection", selection);
+        if (selection === 'pref-new')
+        {
+            setWantsNewProdInfo( prevPref => !prevPref);
+        }
+        else if (selection === 'pref-updates' )
+        {
+            setWantsProdUpdateInfo( prevPref => !prevPref) ;
+        }   
+    }
+
+    function reset() {
+        setWantsNewProdInfo(false);
+        setWantsProdUpdateInfo(false);
+    }
 
     function submitHandler(event) {
-        event.preventDefault() ;
-        console.log("preferencesRef.current.selectedPreferences", preferencesRef.current.selectedPreferences);
-        preferencesRef.current.reset();
+        event.preventDefault();
+        // state values and be used here
+        console.log("wantsNewProdInfo", wantsNewProdInfo, "wantsProdUpdateInfo", wantsProdUpdateInfo);
+        reset();
     }
 
     return (
@@ -18,7 +39,10 @@ export default function Form() {
                 <br />
                 <input type="email" id="email" />
             </div>
-            <Preferences ref={preferencesRef} />
+            <Preferences 
+                newProdInfo={wantsNewProdInfo}
+                prodUpdateInfo={wantsProdUpdateInfo}
+                onUpdateInfo={updateProdInfoHandler} />
             <button>Submit</button>
         </form>
     )
