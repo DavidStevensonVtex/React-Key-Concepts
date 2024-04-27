@@ -13,6 +13,17 @@ function Preferences(props, ref) {
         setWantsProdUpdateInfo(prevPref => !prevPref);
     }
 
+    function reset() {
+        setWantsNewProdInfo(false);
+        setWantsProdUpdateInfo(false);
+    }
+
+    ref.current.reset = reset;
+    ref.current.selectedPreferencds = {
+        newProductInfo: wantsNewProdInfo,
+        productUpdateInfo: wantsProdUpdateInfo
+    };
+
     return (
         <div className={classes.preferences}>
             <label>
