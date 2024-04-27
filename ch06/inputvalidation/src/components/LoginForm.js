@@ -1,5 +1,5 @@
 import { useState } from 'react' ;
-import "./LoginForm.css" ;
+import classes from './LoginForm.module.css' ;
 
 export default function LoginForm() {
     const [email, setEmail] = useState('') ;
@@ -25,16 +25,16 @@ export default function LoginForm() {
     }
 
     return (
-        <form className='text-center' onSubmit={onFormSubmit}>
+        <form className={classes.textcenter} onSubmit={onFormSubmit}>
             <div>
-                <label htmlFor='email' className={emailIsValid ? '' :  'invalid-label'}>Your email</label>
+                <label htmlFor='email' className={emailIsValid ? '' :  classes.invalidlabel}>Your email</label>
                 <br />
-                <input id="email" type='text' onBlur={changeEmail} className={emailIsValid ? '' : 'invalid-input'} />
+                <input id="email" type='text' onBlur={changeEmail} className={emailIsValid ? '' : classes.invalidinput} />
             </div>
             <div>
-                <label htmlFor="password" className={passwordIsValid ? '' : 'invalid-label'} >Your password</label>
+                <label htmlFor="password" className={passwordIsValid ? '' : classes.invalidlabel} >Your password</label>
                 <br />
-                <input id="password" type='password' onBlur={changePassword} className={passwordIsValid ? '' : 'invalid-input'} />
+                <input id="password" type='password' onBlur={changePassword} className={passwordIsValid ? '' : classes.invalidinput} />
             </div>
             <div>
                 <button type='submit'>
