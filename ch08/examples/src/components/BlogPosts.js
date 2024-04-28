@@ -3,7 +3,7 @@ import { useState } from 'react' ;
 import classes from './BlogPosts.module.css' ;
 
 async function fetchPosts() {
-    const response = await fetch('https://localhosts:3000/posts.json');
+    const response = await fetch('https://jsonplaceholder.typicode.com/posts');
     const blogPosts = await response.json();
     return blogPosts;
 }
