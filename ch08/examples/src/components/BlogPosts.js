@@ -11,13 +11,19 @@ async function fetchPosts() {
 function BlogPosts() {
     const [loadedPosts, setLoadedPosts] = useState([]);
 
-    fetchPosts().then( (fetchedPosts) => setLoadedPosts(fetchPosts)) ;
+    function fetchPostsHandler() {
+        fetchPosts().then( (fetchedPosts) => setLoadedPosts(fetchPosts)) ;
+    }
 
     return (
-        <ul className={classes.posts}>
-            { loadedPosts.map( (post) => (
-                <li key={post.id}>{ post.title }</li>
-            ))}
-        </ul>
+        <>
+            <button onClick={fetchPostsHandler}>Fetch Posts</button>
+            <ul className={classes.posts}>
+                { loadedPosts.map( (post) => (
+                    <li key={post.id}>{ post.title }</li>
+                ))}
+            </ul>
+        </>
+
     )
 }
