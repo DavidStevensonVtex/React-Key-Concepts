@@ -1,11 +1,16 @@
 .drawer {
   position: fixed;
+  z-index: 2;
   top: 0;
   right: 0;
   height: 100vh;
   width: 15rem;
   background-color: #381bb8;
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+}
+
+.hidedrawer {
+  display: none ;
 }
 
 .drawer ul {

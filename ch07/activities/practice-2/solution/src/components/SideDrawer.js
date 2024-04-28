@@ -1,10 +1,13 @@
 import classes from './SideDrawer.module.css';
 
-function SideDrawer() {
+function SideDrawer({display, onClose}) {
+
+  console.log("SideDrawer: display: ", display);
+
   return (
     <>
-      <div className={classes.backdrop} />
-      <aside className={classes.drawer}>
+      <div className={classes.backdrop} onClick={onClose} />
+      <aside className={display ? classes.drawer : classes.hidedrawer}>
         <nav>
           <ul>
             <li>
