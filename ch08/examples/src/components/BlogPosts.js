@@ -12,7 +12,7 @@ async function fetchPosts() {
 function BlogPosts() {
     const [loadedPosts, setLoadedPosts] = useState([]);
 
-    useEffect(function fetchPostsHandler() {
+    useEffect(function () {
         fetchPosts().then( (fetchedPosts) => { setLoadedPosts(fetchedPosts) }) ;
     });
 
