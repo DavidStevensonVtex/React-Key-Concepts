@@ -13,15 +13,21 @@ export default function Alert() {
         setEnteredPassword(event.target.value);
     }
 
-    function validateEmail() {
-        console.log("enteredEmail", enteredEmail);
-        if ( enteredEmail && !enteredEmail.includes('@')) {
-            console.log("Invalid email");
-        }
-    }
+    // function validateEmail() {
+
+    //     if ( enteredEmail && !enteredEmail.includes('@')) {
+    //         console.log("enteredEmail", enteredEmail);
+    //         console.log("Invalid email");
+    //     }
+    // }
 
     useEffect( function() {
-        validateEmail();
+        // Option 1: Move validateEmail inside of useEffect
+        // Option 2: Avoid using useEffect
+        if ( enteredEmail && !enteredEmail.includes('@')) {
+            console.log("enteredEmail", enteredEmail);
+            console.log("Invalid email");
+        }
     }, [enteredEmail] ) ;
 
     return (
