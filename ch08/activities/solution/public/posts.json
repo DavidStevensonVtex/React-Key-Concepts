@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "title": "Hitchhiker's Guide to the Galaxy"
+    },
+    {
+        "id": 2,
+        "title": "10 Reasons You Should Buy A Yacht"
+    },
+    {
+        "id": 3,
+        "title": "No One Will Tell You"
+    },
+    {
+        "id": 4,
+        "title": "Everything You Should Know About Buying A Home"
+    },
+    {
+        "id": 5,
+        "title": "How To Change A Flat Tire"
+    },
+    {
+        "id": 6,
+        "title": "Increase Your Take Home Pay With This Simple Trick"
+    },
+    {
+        "id": 7,
+        "title": "React vs Vue"
+    },
+    {
+        "id": 8,
+        "title": "A Beginner's Guide to JavaScript"
+    },
+    {
+        "id": 9,
+        "title": "The Advanced Guide to JavaScript"
+    }
+]
