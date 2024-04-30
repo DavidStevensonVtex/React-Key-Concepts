@@ -8,21 +8,21 @@ export default function Alert2()
         setAlertMsg(event.target.value);
     }
 
-    function setAlert() {
-        return setTimeout(function () {
-            console.log(alertMsg);
-        }, 2000);
-    }
-
     useEffect( 
         function() {
-            const timer = setAlert() ;
+            function setAlert() {
+                return setTimeout(function () {
+                    console.log(alertMsg);
+                }, 2000);
+            }
 
-            return function() {
+            const timer = setAlert();
+
+            return function () {
                 clearTimeout(timer);
             }
         }, 
-        [setAlert]
+        [alertMsg]
     );
 
     return <p><input type="text" onChange={changeAlertMsgHandler} /></p>
