@@ -9,14 +9,18 @@ export default function Alert2()
     }
 
     function setAlert() {
-        setTimeout(function () {
+        return setTimeout(function () {
             console.log(alertMsg);
         }, 2000);
     }
 
     useEffect( 
         function() {
-            setAlert() ;
+            const timer = setAlert() ;
+
+            return function() {
+                clearTimeout(timer);
+            }
         }, 
         [setAlert]
     );
