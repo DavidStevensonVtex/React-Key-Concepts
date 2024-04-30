@@ -1,46 +1,31 @@
-// Avoiding Unnecessary Effect Executions
-import { useState, useEffect, useCallback } from 'react' ;
+import { useState } from 'react' ;
+import Error from "./Error" ;
 
-export default function Alert() {
+export default function Form() {
     const [enteredEmail, setEnteredEmail] = useState('') ;
-    const [enteredPassword, setEnteredPassword] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
 
     function updateEmailHandler(event) {
         setEnteredEmail(event.target.value);
     }
 
-    function updatePasswordHandler(event) {
-        setEnteredPassword(event.target.value);
+    function submitFormHandler(event) {
+        event.preventDefault();
+        console.log("enteredEmail", "'" + enteredEmail + "'");
+        if (! enteredEmail.endsWith(".com")) {
+            setErrorMessage('Only email addresses ending with .com are accepted!');
+        }
     }
 
-    const validateEmail = useCallback (
-        function () {
-            if ( enteredEmail && !enteredEmail.includes('@')) {
-                console.log("enteredEmail", enteredEmail);
-                console.log("Invalid email");
-            }
-        },
-        [enteredEmail]
-    ) ;
- 
-
-    useEffect( function() {
-            validateEmail();
-        }, 
-        [validateEmail] 
-    ) ;
 
     return (
-        <form>
+        <form onSubmit={submitFormHandler}>
             <div>
                 <label>Email</label>
                 <input type="email" onChange={updateEmailHandler} />
             </div>
-            <div>
-                <label>Password</label>
-                <input type="password" onChange={updatePasswordHandler} />
-            </div>
-            <button>Save</button>
+            { errorMessage && <Error message={errorMessage} /> }
+            <button>Submit</button>
         </form>
     )
 }
