@@ -18,12 +18,13 @@ export const postBlogEntry = async (url, data) => {
   });
   const blogPosts = await response.json();
   console.log("blogPosts", blogPosts);
-  return blogPosts;
+  // return blogPosts;
 }
 
 
 function NewPost() {
   const [enteredTitle, setEnteredTitle] = useState('');
+  const [isSaving, setIsSaving] = useState(false) ;
 
   function updateTitleHandler(event) {
     setEnteredTitle(event.target.value);
@@ -31,18 +32,22 @@ function NewPost() {
 
   function submitHandler(event) {
     event.preventDefault();
-    const newPost = {
-      userId: 1, 
-      id: blogPostNumber++,
-      title: enteredTitle,
-      body: "Omitted"
-    } ;
-
-    console.log("newPost", newPost);
-
-    const abc = postBlogEntry(DEFAULT_URL, newPost);
-    console.log("abc", abc);
-
+    console.log("Submitting new blog post...");
+    setIsSaving(true);
+    setTimeout( () => {
+      const newPost = {
+        userId: 1, 
+        id: blogPostNumber++,
+        title: enteredTitle,
+        body: "Omitted"
+      } ;
+  
+      console.log("newPost", newPost);
+  
+      const abc = postBlogEntry(DEFAULT_URL, newPost);
+      console.log("post new blog entry completed"); 
+      setIsSaving(false);
+    }, 5000);
   }
 
   return (
@@ -51,7 +56,9 @@ function NewPost() {
         <label>Title</label>
         <input type="text" onChange={updateTitleHandler} value={enteredTitle} />
       </div>
-      <button>Save</button>
+      <button>
+        { isSaving ? "Saving..." : "Save" }
+      </button>
     </form>
   );
 }
