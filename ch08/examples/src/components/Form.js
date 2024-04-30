@@ -1,5 +1,5 @@
 // Avoiding Unnecessary Effect Executions
-import { useState, useEffect } from 'react' ;
+import { useState, useEffect, useCallback } from 'react' ;
 
 export default function Alert() {
     const [enteredEmail, setEnteredEmail] = useState('') ;
@@ -13,22 +13,22 @@ export default function Alert() {
         setEnteredPassword(event.target.value);
     }
 
-    // function validateEmail() {
-
-    //     if ( enteredEmail && !enteredEmail.includes('@')) {
-    //         console.log("enteredEmail", enteredEmail);
-    //         console.log("Invalid email");
-    //     }
-    // }
+    const validateEmail = useCallback (
+        function () {
+            if ( enteredEmail && !enteredEmail.includes('@')) {
+                console.log("enteredEmail", enteredEmail);
+                console.log("Invalid email");
+            }
+        },
+        [enteredEmail]
+    ) ;
+ 
 
     useEffect( function() {
-        // Option 1: Move validateEmail inside of useEffect
-        // Option 2: Avoid using useEffect
-        if ( enteredEmail && !enteredEmail.includes('@')) {
-            console.log("enteredEmail", enteredEmail);
-            console.log("Invalid email");
-        }
-    }, [enteredEmail] ) ;
+            validateEmail();
+        }, 
+        [validateEmail] 
+    ) ;
 
     return (
         <form>
