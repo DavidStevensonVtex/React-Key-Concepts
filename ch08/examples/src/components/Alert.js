@@ -14,6 +14,7 @@ export default function Alert()
         }, 2000);
 
         return function() {
+            console.log("Cleanup!");
             clearTimeout(timer);
         }
     }, []);
