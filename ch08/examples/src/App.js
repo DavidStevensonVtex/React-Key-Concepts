@@ -1,6 +1,6 @@
 import { useState } from 'react' ;
 import './App.css';
-import Alert from "./components/Alert";
+import Alert2 from "./components/Alert2";
 
 function App() {
   const [showAlert, setShowAlert] = useState(false);
@@ -15,7 +15,7 @@ function App() {
       <button onClick={showAlertHandler}>
         { showAlert ? 'Hide' : 'Show' }
       </button>
-      { showAlert && <Alert /> }
+      { showAlert && <Alert2 /> }
     </>
   );
 }
