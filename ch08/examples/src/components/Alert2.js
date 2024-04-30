@@ -11,14 +11,14 @@ export default function Alert2()
     function setAlert() {
         setTimeout(function () {
             console.log(alertMsg);
-        }, 10000);
+        }, 2000);
     }
 
     useEffect( 
         function() {
             setAlert() ;
         }, 
-        []
+        [setAlert]
     );
 
     return <p><input type="text" onChange={changeAlertMsgHandler} /></p>
