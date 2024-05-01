@@ -1,4 +1,5 @@
 import { useState } from 'react' ;
+import "./NestedChild.css"
 
 function NestedChild() {
     console.log("<NestedChild /> is called");
