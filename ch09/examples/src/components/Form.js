@@ -1,6 +1,8 @@
-import { useState } from 'react' ;
+import { useState, useCallback } from 'react' ;
 import classes from "./Form.module.css" ;
 import Error from "./Error.js" ;
+
+// useCallback can be used to avoid unnecessary function recreations.
 
 export default function Form() {
     const [enteredEmail, setEnteredEmail] = useState('');
@@ -17,6 +19,11 @@ export default function Form() {
         }
     }
 
+    const clearErrorHandler = useCallback ( () => {
+        console.log("clearErrorHandler");
+        setErrorMessage(null);
+    }, []);
+
     return (
         <form className={classes.form} onSubmit={submitHandler}>
             <div className={classes.control}>
@@ -27,7 +34,7 @@ export default function Form() {
                     value={enteredEmail}
                     onChange={updateEmailHandler} />
             </div>
-            <Error message={errorMessage} />
+            <Error message={errorMessage} onClearError={clearErrorHandler}/>
             <button>Sign up</button>
         </form>
     )

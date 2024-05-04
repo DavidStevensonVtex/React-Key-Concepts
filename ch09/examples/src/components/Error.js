@@ -1,7 +1,7 @@
 import { memo } from 'react' ;
 import classes from "./Error.module.css"
 
-function Error( { message } )
+function Error( { message, onClearError } )
 {
     console.log("<Error /> component function is executed.");
 
@@ -9,7 +9,12 @@ function Error( { message } )
         return null;
     }
 
-    return <p className={classes.error}>{ message }</p>
+    return (
+        <div className={classes.error}>
+            <p>{ message }</p>
+            <button className={classes.errorBtn} onClick={onClearError}>X</button>
+        </div>
+    )
 }
 
 export default memo(Error) ;
