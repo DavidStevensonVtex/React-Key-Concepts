@@ -1,7 +1,7 @@
 import Header from './components/Header/Header';
 import News from './components/News/News';
 
-export default function App() {
+function App() {
   return (
     <>
       <Header />
@@ -11,3 +11,5 @@ export default function App() {
     </>
   );
 }
+
+export default App;
