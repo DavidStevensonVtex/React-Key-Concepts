@@ -1,12 +1,16 @@
+import { useState } from 'react' ;
+
 import Articles from '../Articles/Articles' ;
 import InfoSidebar from '../InfoSidebar/InfoSidebar' ;
 import BookmarkContext from '../../store/bookmark-context' ;
 
 export default function News() 
 {
+    const [savedArticles, setSavedArticles] = useState([]);
+
     const bookmarkCtxValue = { 
-        bookmarkedArticles: [] 
-    } ; // for now, it's the same value as used before, for the initial context
+        bookmarkedArticles: savedArticles
+    } ;
 
     return (
         <BookmarkContext.Provider value={bookmarkCtxValue}>
