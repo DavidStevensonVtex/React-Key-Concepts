@@ -28,11 +28,9 @@ function News()
 
     return (
         <BookmarkContext.Provider value={bookmarkCtxValue}>
-            <Header />
-            <InfoSidebar bookmarkedArticles={bookmarkCtxValue.bookmarkedArticles} />
-            <div style={clear} />
-            <Articles />
-        </BookmarkContext.Provider>
+        <Articles />
+        <InfoSidebar />
+      </BookmarkContext.Provider>
     )
 }
 

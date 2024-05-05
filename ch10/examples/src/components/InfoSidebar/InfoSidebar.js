@@ -5,9 +5,9 @@ function InfoSidebar( { bookmarkedArticles } ) {
     console.log("InfoSidebar: ", bookmarkedArticles);
 
     return (
-        <div className={classes.sidebar}>
+        <aside className={classes.sidebar}>
             <BookmarkInformation />
-        </div>
+        </aside>
     )
 }
 
