@@ -17,12 +17,12 @@ function Articles() {
         );
 
         // default button action => bookmark article, because not bookmarked yet
-        let buttonAction = () => bookmarkCtx.bookmarkArticle(article) ;
+        let buttonAction = () => bookmarkCtx.bookmarkArticle(article);
         // default button icon: Empty bookmark icon, because not bookmarked
         let buttonIcon = <FaRegBookmark />;
 
         if (isBookmarked) {
-          buttonAction = () => bookmarkCtx.unbookmarkArticle(article) ;
+          buttonAction = () => bookmarkCtx.unbookmarkArticle(article.id);
           buttonIcon = <FaBookmark />;
         }
 

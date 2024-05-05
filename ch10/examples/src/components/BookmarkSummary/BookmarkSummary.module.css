@@ -3,6 +3,7 @@
   font-weight: bold;
 }
 
-.list li {
+ul li {
   margin: 0.5rem;
+  list-style-type: none;
 }

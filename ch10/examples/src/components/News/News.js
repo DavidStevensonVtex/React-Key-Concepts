@@ -1,10 +1,11 @@
-import { useState } from 'react' ;
+import { useState } from 'react';
 
-import Articles from '../Articles/Articles' ;
-import InfoSidebar from '../InfoSidebar/InfoSidebar' ;
-import BookmarkContext from '../../store/bookmark-context' ;
+import Articles from '../Articles/Articles';
+import InfoSidebar from '../InfoSidebar/InfoSidebar';
+import BookmarkContext from '../../store/bookmark-context';
+import Header from '../Header/Header' ;
 
-export default function News() 
+function News() 
 {
     const [savedArticles, setSavedArticles] = useState([]);
 
@@ -23,10 +24,16 @@ export default function News()
         unbookmarkArticle: removeArticle
     } ;
 
+    const clear = { clear: "both" } ;
+
     return (
         <BookmarkContext.Provider value={bookmarkCtxValue}>
+            <Header />
+            <InfoSidebar bookmarkedArticles={bookmarkCtxValue.bookmarkedArticles} />
+            <div style={clear} />
             <Articles />
-            <InfoSidebar />
         </BookmarkContext.Provider>
     )
 }
+
+export default News ;

@@ -1,10 +1,14 @@
 import BookmarkInformation from '../BookmarkSummary/BookmarkInformation' ;
 import classes from './InfoSidebar.module.css' ;
 
-export default function InfoSidebar( { bookmarkedArticles } ) {
+function InfoSidebar( { bookmarkedArticles } ) {
+    console.log("InfoSidebar: ", bookmarkedArticles);
+
     return (
-        <aside className={classes.sidebar}>
-            <BookmarkInformation bookmarkedArticles={bookmarkedArticles} />
-        </aside>
+        <div className={classes.sidebar}>
+            <BookmarkInformation />
+        </div>
     )
 }
+
+export default InfoSidebar;

@@ -1,22 +1,22 @@
-import { useContext } from 'react' ;
+import { useContext } from 'react';
 
-import BookmarkContext from '../../store/bookmark-context' ;
-import classes from './BookmarkSummary.module.css' ;
+import BookmarkContext from '../../store/bookmark-context';
+import classes from './BookmarkSummary.module.css';
 
-export default function BookmarkSummary() {
+function BookmarkSummary() {
     const bookmarkCtx = useContext(BookmarkContext);
     const numberOfArticles = bookmarkCtx.bookmarkedArticles.length ;
 
     return (
         <>
-            <p className={classes.summary}>{numberOfArticles}</p>
+            <p className={classes.summary}>{numberOfArticles} articles bookmarked</p>
             <ul className={classes.list}>
-                {
-                    bookmarkCtx.bookmarkedArticles.map( (article) => (
-                        <li key={article.id}>{article.title}</li>
-                    ))
-                }
+                {bookmarkCtx.bookmarkedArticles.map( (article) => (
+                    <li key={article.id}>{article.title}</li>
+                ))}
             </ul>
         </>
     ) ;
 }
+
+export default BookmarkSummary;

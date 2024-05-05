@@ -1,5 +1,14 @@
-export default function BookmarkInformation() {
-    return (
-        <p>Bookmark Information</p>
-    ) ;
+import BookmarkSummary from './BookmarkSummary';
+
+function BookmarkInformation() {
+  return (
+    <section>
+      <header>
+        <h2>Your Bookmarks</h2>
+      </header>
+      <BookmarkSummary />
+    </section>
+  );
 }
+
+export default BookmarkInformation;
