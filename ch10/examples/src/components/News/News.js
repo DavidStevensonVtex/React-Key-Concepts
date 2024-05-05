@@ -3,7 +3,6 @@ import { useState } from 'react';
 import Articles from '../Articles/Articles';
 import InfoSidebar from '../InfoSidebar/InfoSidebar';
 import BookmarkContext from '../../store/bookmark-context';
-import Header from '../Header/Header' ;
 
 function News() 
 {
@@ -23,8 +22,6 @@ function News()
         bookmarkArticle: addArticle,
         unbookmarkArticle: removeArticle
     } ;
-
-    const clear = { clear: "both" } ;
 
     return (
         <BookmarkContext.Provider value={bookmarkCtxValue}>
