@@ -18,7 +18,9 @@ export default function News()
     }
 
     const bookmarkCtxValue = { 
-        bookmarkedArticles: savedArticles
+        bookmarkedArticles: savedArticles,
+        bookmarkArticle: addArticle,
+        unbookmarkArticle: removeArticle
     } ;
 
     return (
