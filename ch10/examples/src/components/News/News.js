@@ -8,6 +8,15 @@ export default function News()
 {
     const [savedArticles, setSavedArticles] = useState([]);
 
+    function addArticle(article) {
+        setSavedArticles( (prevSavedArticles) => [...prevSavedArticles, article]);
+    }
+
+    function removeArticle(articleId) {
+        setSavedArticles( (prevSavedArticles) => 
+        prevSavedArticles.filter( (article) => article.id !== articleId));
+    }
+
     const bookmarkCtxValue = { 
         bookmarkedArticles: savedArticles
     } ;
