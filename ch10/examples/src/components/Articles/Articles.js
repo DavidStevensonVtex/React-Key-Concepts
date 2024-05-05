@@ -1,9 +1,9 @@
-import { useContext } from 'react';
+// import { useContext } from 'react';
 // import { FaBookmark, FaRegBookmark } from 'react-icons/fa';
 
 // import dummyArticles from '../../data/dummy-articles';
-import BookmarkContext from '../../store/bookmark-context';
-import classes from './Articles.module.css';
+// import BookmarkContext from '../../store/bookmark-context';
+// import classes from './Articles.module.css';
 
 function Articles() {
   // const bookmarkCtx = useContext(BookmarkContext);
@@ -36,6 +36,10 @@ function Articles() {
   //     })}
   //   </ul>
   // );
+
+  return (
+    <p>Articles</p>
+  ) ;
 }
 
 export default Articles;
