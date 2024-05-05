@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom';
 import classes from './ResetPassword.module.css';
 
 function ResetPassword({ onFinish }) {
+  console.log("ResetPassword");
   return createPortal(
     <>
       <div className={classes.backdrop} onClick={onFinish}>

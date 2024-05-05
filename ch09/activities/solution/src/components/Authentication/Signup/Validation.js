@@ -1,24 +1,25 @@
 import { FaCheck } from 'react-icons/fa';
-
+import { useMemo, memo } from 'react' ;
 import classes from './Validation.module.css';
 
 const numberRegex = /\d/;
-const specCharsRegex = /[ `!@#$%^&*()_+\-={};':"\\|,.<>\/?~]/;
+const specCharsRegex = /[ `!@#$%^&*()_+\-={};':"\\|,.<>/?~]/;
 
 function Validation({ email, confirmEmail, password }) {
   console.log('Evaluating <Validation /> component.');
   const emailsAreValid = email.includes('@') && email === confirmEmail;
 
-  const pwHasMinLength = password.length >= 8;
-  const pwHasMinSpecChars = specCharsRegex.test(password);
-  const pwHasMinNumbers = numberRegex.test(password);
-  console.log('Validated password.');
-
-  const passwordValidityData = {
-    length: pwHasMinLength,
-    specChars: pwHasMinSpecChars,
-    numbers: pwHasMinNumbers,
-  };
+  const passwordValidityData = useMemo ( () => {
+    const pwHasMinLength = password.length >= 8 ;
+    const pwHasMinSpecChars = specCharsRegex.test(password);
+    const pwHasMinNumbers = numberRegex.test(password);
+    console.log('Validated password.');
+    return {
+      length: pwHasMinLength,
+      specChars: pwHasMinSpecChars,
+      numbers: pwHasMinNumbers
+    } ;
+  }, [password] ) ;
 
   return (
     <div className={classes.validation}>
@@ -60,4 +61,4 @@ function Validation({ email, confirmEmail, password }) {
   );
 }
 
-export default Validation;
+export default memo(Validation);

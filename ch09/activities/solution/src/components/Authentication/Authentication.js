@@ -1,8 +1,10 @@
-import { useState } from 'react';
+import { useState, lazy, Suspense } from 'react';
 
 import Login from './Login/Login';
-import Signup from './Signup/Signup';
+
 import classes from './Authentication.module.css';
+
+const Signup = lazy( () => import('./Signup/Signup') ) ;
 
 function Authentication() {
   const [mode, setMode] = useState('login');
@@ -22,7 +24,9 @@ function Authentication() {
   return (
     <div className={classes.auth}>
       <h1>You must authenticate yourself first!</h1>
-      {authElement}
+      <Suspense fallback={<p>Loading...</p>}>
+        {authElement}
+      </Suspense>
       <button className={classes.btn} onClick={switchAuthModeHandler}>{switchBtnCaption}</button>
     </div>
   );
