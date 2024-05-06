@@ -1,24 +1,57 @@
-import logo from './logo.svg';
-import './App.css';
+import { useCallback, useEffect, useState } from 'react';
+
+import BlogPosts from './components/BlogPosts';
 
 function App() {
+  const [fetchedPosts, setFetchedPosts] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState();
+
+  // Using useCallback() to prevent an infinite loop in useEffect() below
+  const fetchPosts = useCallback(async function fetchPosts() {
+    setIsLoading(fetchedPosts ? false : true); // don't set to "Loading" if data was fetched before
+    setError(null);
+
+    try {
+      const response = await fetch(
+        'https://jsonplaceholder.typicode.com/posts'
+      );
+
+      if (!response.ok) {
+        throw new Error('Failed to fetch posts.');
+      }
+
+      const posts = await response.json();
+
+      setIsLoading(false);
+      setError(null);
+      setFetchedPosts(posts);
+    } catch (error) {
+      setIsLoading(false);
+      setError(error.message);
+      setFetchedPosts(null);
+    }
+  }, []);   // adding fetchedPosts as a dependency causes an infinite loop
+  // fetchedPosts is not just a dependency but is activley changed, and this causes
+  // an infinite loop of Network requests.
+
+  useEffect(
+    function () {
+      fetchPosts();
+    },
+    [fetchPosts]
+  );
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <>
+      <header>
+        <h1>Complex State Blog</h1>
+        <button onClick={fetchPosts}>Load Posts</button>
       </header>
-    </div>
+      {isLoading && <p>Loading...</p>}
+      {error && <p>{error}</p>}
+      {fetchedPosts && <BlogPosts posts={fetchedPosts} />}
+    </>
   );
 }
 
