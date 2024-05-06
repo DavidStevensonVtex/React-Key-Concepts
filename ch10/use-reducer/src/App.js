@@ -1,16 +1,47 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useReducer } from 'react';
 
 import BlogPosts from './components/BlogPosts';
 
+const initialHttpState = {
+  data: null,
+  isLoading: false,
+  error: null,
+};
+
+function httpReducer(state, action) {
+  if (action.type === 'FETCH_START') {
+    return {
+      ...state, // copying the existing state
+      isLoading: state.data ? false : true,
+      error: null,
+    };
+  }
+
+  if (action.type === 'FETCH_ERROR') {
+    return {
+      data: null,
+      isLoading: false,
+      error: action.payload,
+    };
+  }
+
+  if (action.type === 'FETCH_SUCCESS') {
+    return {
+      data: action.payload,
+      isLoading: false,
+      error: null,
+    };
+  }
+
+  return initialHttpState; // default value for unknown actions
+}
+
 function App() {
-  const [fetchedPosts, setFetchedPosts] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState();
+  const [httpState, dispatch] = useReducer(httpReducer, initialHttpState);
 
   // Using useCallback() to prevent an infinite loop in useEffect() below
   const fetchPosts = useCallback(async function fetchPosts() {
-    setIsLoading(fetchedPosts ? false : true); // don't set to "Loading" if data was fetched before
-    setError(null);
+    dispatch({ type: 'FETCH_START' });
 
     try {
       const response = await fetch(
@@ -23,17 +54,11 @@ function App() {
 
       const posts = await response.json();
 
-      setIsLoading(false);
-      setError(null);
-      setFetchedPosts(posts);
+      dispatch({ type: 'FETCH_SUCCESS', payload: posts });
     } catch (error) {
-      setIsLoading(false);
-      setError(error.message);
-      setFetchedPosts(null);
+      dispatch({ type: 'FETCH_ERROR', payload: error.message });
     }
-  }, []);   // adding fetchedPosts as a dependency causes an infinite loop
-  // fetchedPosts is not just a dependency but is activley changed, and this causes
-  // an infinite loop of Network requests.
+  }, []);
 
   useEffect(
     function () {
@@ -48,9 +73,9 @@ function App() {
         <h1>Complex State Blog</h1>
         <button onClick={fetchPosts}>Load Posts</button>
       </header>
-      {isLoading && <p>Loading...</p>}
-      {error && <p>{error}</p>}
-      {fetchedPosts && <BlogPosts posts={fetchedPosts} />}
+      {httpState.isLoading && <p>Loading...</p>}
+      {httpState.error && <p>{httpState.error}</p>}
+      {httpState.data && <BlogPosts posts={httpState.data} />}
     </>
   );
 }
