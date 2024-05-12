@@ -63,6 +63,8 @@ function useFetch() {
         },
         [fetchPosts]
     );
+
+    return httpState ;
 }
 
 export default useFetch ;
