@@ -1,13 +1,15 @@
 import { useEffect, useState } from 'react';
 
-function useKeyEvent() {
+// allowedKeys is an array of characters that are allowed.
+
+function useKeyEvent(allowedKeys) {
     const [pressedKey, setPressedKey] = useState();
 
     useEffect(() => {
         function keyPressedHandler(event) {
           const pressedKey = event.key;
-    
-          if (!['s', 'c', 'p'].includes(pressedKey)) {
+  
+          if (!allowedKeys.includes(pressedKey)) {
             alert('Invalid key!');
             return;
           }
@@ -17,7 +19,7 @@ function useKeyEvent() {
         window.addEventListener('keydown', keyPressedHandler);
     
         return () => window.removeEventListener('keydown', keyPressedHandler);
-      }, []);
+      }, [allowedKeys]);
 
       return [ pressedKey, setPressedKey ] ;
 }
