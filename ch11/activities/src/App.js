@@ -1,24 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from 'react';
 
 function App() {
+  const [pressedKey, setPressedKey] = useState();
+
+  useEffect(() => {
+    function keyPressedHandler(event) {
+      const pressedKey = event.key;
+
+      if (!['s', 'c', 'p'].includes(pressedKey)) {
+        alert('Invalid key!');
+        return;
+      }
+      setPressedKey(pressedKey);
+    }
+
+    window.addEventListener('keydown', keyPressedHandler);
+
+    return () => window.removeEventListener('keydown', keyPressedHandler);
+  }, []);
+
+  let output = '';
+
+  if (pressedKey === 's') {
+    output = '😊';
+  } else if (pressedKey === 'c') {
+    output = '😭';
+  } else if (pressedKey === 'p') {
+    output = '🎉';
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main>
+      <h1>Press a key!</h1>
+      <p>
+        Supported keys: <kbd>s</kbd>, <kbd>c</kbd>, <kbd>p</kbd>
+      </p>
+      <p id="output">{output}</p>
+    </main>
   );
 }
 
