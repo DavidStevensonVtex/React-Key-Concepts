@@ -55,7 +55,7 @@ function useFetch(url) {
         catch (error) {
             dispatch( { type: 'FETCH_ERROR', payload: error.message });
         }
-    }, []);
+    }, [url]);
 
     useEffect( 
         function () {
