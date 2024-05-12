@@ -1,12 +1,11 @@
 import './App.css';
-import { Demo1, Demo2 } from "./components/Demo1" ;
+import BlogPosts from "./components/BlogPosts" ;
 
 function App() {
   return (
     <>
       <main>
-        <Demo1 />
-        <Demo2 />
+        <BlogPosts />
       </main>
     </>
   );
