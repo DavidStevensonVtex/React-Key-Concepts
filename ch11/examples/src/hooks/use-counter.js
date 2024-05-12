@@ -11,7 +11,7 @@ function useCounter() {
         setCounter ( oldCounter => oldCounter - 1);
     }
 
-    return { counter, increment, decrement } ;
+    return [ counter, increment, decrement ];
 }
 
 export default useCounter ;

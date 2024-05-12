@@ -1,7 +1,7 @@
 import useCounter from '../hooks/use-counter' ;
 
 export function Demo1() {
-    const { counter, increment, decrement } = useCounter() ;
+    const [ counter, increment, decrement ] = useCounter() ;
 
     return (
         <>
@@ -13,7 +13,7 @@ export function Demo1() {
 }
 
 export function Demo2() {
-    const { counter, increment, decrement } = useCounter() ;
+    const [ counter, increment, decrement ] = useCounter() ;
 
     return (
         <>
