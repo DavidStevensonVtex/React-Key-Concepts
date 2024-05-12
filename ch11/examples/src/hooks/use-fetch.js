@@ -64,7 +64,7 @@ function useFetch(url) {
         [fetchPosts]
     );
 
-    return httpState ;
+    return [ httpState, useFetch ] ;
 }
 
 export default useFetch ;
