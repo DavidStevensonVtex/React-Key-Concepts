@@ -34,7 +34,7 @@ function httpReducer(state, action ) {
     return initialHttpState ;
 }
 
-function useFetch() {
+function useFetch(url) {
     const [httpState, dispatch] = useReducer(httpReducer, initialHttpState);
 
     const fetchPosts = useCallback(async function fetchPosts() {
@@ -42,7 +42,7 @@ function useFetch() {
 
         try
         {
-            const response = await fetch( 'https://jsonplaceholder.typicode.com/posts');
+            const response = await fetch(url);
 
             if (! response.ok) {
                 throw new Error('failed to fetch posts.') ;
