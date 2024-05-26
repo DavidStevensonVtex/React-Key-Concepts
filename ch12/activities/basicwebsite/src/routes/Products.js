@@ -6,10 +6,12 @@ function Products()
     return (
         <>
             <h2>Products</h2>
-            <ul>
+            <ul id="products-list">
             { products.map( (product) => (
                 <li key={product.id}>
-                    {product.title}
+                    <a href={`/products/${product.id}`}>
+                        {product.title}
+                    </a>
                 </li>
             ))}
             </ul>
